@@ -64,3 +64,4 @@ CREATE INDEX idx_user_posts ON ReviewPosts (UserID);
 CREATE INDEX idx_post_comments ON Comments (ReviewPostID);
 CREATE INDEX idx_user_follows ON Follows (FollowingUserID);
 CREATE INDEX idx_user_recs ON Recommendations (ReceiverID);
+
