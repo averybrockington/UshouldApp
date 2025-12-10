@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from 'react-router-dom';
 import styled from "styled-components";
 import { useState } from "react";
-import { useUser } from "../utils/UserContext";
+import { useUser } from "../../utils/UserContext";
 import SlideMenu from "../Menu";
 /* ----------------- Styled Components ----------------- */
 

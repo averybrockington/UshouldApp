@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import SharedNavBarLanding from "../SharedNavBarLanding";
-import { useUser } from "../utils/UserContext";
-import { loginUser, registerUser } from "../utils/api";
+import { useUser } from "../../utils/UserContext";
+import { loginUser, registerUser } from "../../utils/api";
 
 /* ----------------- Styled Components ----------------- */
 // (Reuse your existing styled-components from before)
 const SignPageContainer = styled.div`
+
   width: 100%;
   min-height: 100vh;
   background: #FFF6EE;
@@ -15,18 +16,21 @@ const SignPageContainer = styled.div`
 `;
 
 const CenterContainer = styled.div`
+  padding-top: 150px;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-top;
   min-height: 100vh;
   gap: 20px;
 `;
 
 const PageTitle = styled.span`
+  padding-left: 35px;
   text-align: center;
   color: #72645B;
-  font-size: 80px;
+  font-size: 100px;
   font-family: Rubik;
   font-weight: 900;
   text-decoration: underline;

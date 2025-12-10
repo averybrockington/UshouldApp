@@ -144,6 +144,7 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const ButtonBackground = styled.div`

@@ -1,0 +1,56 @@
+# -----------------
+# Node modules
+# -----------------
+node_modules/
+
+# -----------------
+# Environment variables
+# -----------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# -----------------
+# Logs
+# -----------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------
+# Build / output
+# -----------------
+dist/
+build/
+.cache/
+
+# -----------------
+# OS generated files
+# -----------------
+.DS_Store
+Thumbs.db
+
+# -----------------
+# Vite / React
+# -----------------
+.vite/
+*.local
+*.log
+
+# -----------------
+# Editor / IDE files
+# -----------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# -----------------
+# Optional: Frontend public folders
+# -----------------
+public/assets/
