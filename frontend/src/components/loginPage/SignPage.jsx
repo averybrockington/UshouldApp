@@ -143,7 +143,6 @@ export default function LoginForm() {
     try {
       const newUser = await registerUser({
         username: newUsername,
-        email: `${newUsername}@example.com`, // placeholder if you don't have email field yet
         password: newPassword,
         name: firstName,
       });

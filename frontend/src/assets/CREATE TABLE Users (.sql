@@ -1,5 +1,5 @@
 CREATE TABLE Users (
-    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID SERIAL PRIMARY KEY,
     Username VARCHAR(50) UNIQUE NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Users (
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE ReviewPosts (
-    ReviewPostID INT PRIMARY KEY AUTO_INCREMENT,
+    ReviewPostID SERIAL PRIMARY KEY,
     UserID INT NOT NULL,
     Content TEXT NOT NULL,
     MediaType VARCHAR(20),
@@ -18,7 +18,7 @@ CREATE TABLE ReviewPosts (
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 CREATE TABLE Comments (
-    CommentID INT PRIMARY KEY AUTO_INCREMENT,
+    CommentID SERIAL PRIMARY KEY,
     ReviewPostID INT NOT NULL,
     UserID INT NOT NULL,
     Content TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE Comments (
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 CREATE TABLE Likes (
-    LikeID INT PRIMARY KEY AUTO_INCREMENT,
+    LikeID SERIAL PRIMARY KEY,
     UserID INT NOT NULL,
     ReviewPostID INT,
     CommentID INT,
@@ -41,7 +41,7 @@ CREATE TABLE Likes (
     )
 );
 CREATE TABLE Friendships (
-    FriendshipID INT PRIMARY KEY AUTO_INCREMENT,
+    FriendshipID SERIAL PRIMARY KEY,
     UserID1 INT NOT NULL,
     UserID2 INT NOT NULL,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -50,7 +50,7 @@ CREATE TABLE Friendships (
 );
 
 CREATE TABLE Recommendations (
-    RecommendationID INT PRIMARY KEY AUTO_INCREMENT,
+    RecommendationID SERIAL PRIMARY KEY,
     SenderID INT NOT NULL,
     ReceiverID INT NOT NULL,
     Content TEXT NOT NULL,

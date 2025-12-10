@@ -1,12 +1,18 @@
 const API_BASE = "http://localhost:8080"; // Change to your deployed backend URL
 
 /* ----------------- AUTH ----------------- */
-export const registerUser = async ({ username, email, password, name }) => {
+export const registerUser = async ({ username, password, name }) => {
   const res = await fetch(`${API_BASE}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password, name }),
+    body: JSON.stringify({ username, password, name }),
   });
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(errorData.error || "Registration failed");
+  }
+
   return res.json();
 };
 
@@ -16,6 +22,12 @@ export const loginUser = async ({ username, password }) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
   });
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(errorData.error || "Login failed");
+  }
+
   return res.json();
 };
 
