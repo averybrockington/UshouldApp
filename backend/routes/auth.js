@@ -8,13 +8,13 @@ const SALT_ROUNDS = 10;
 
 // REGISTER
 router.post('/register', async (req, res) => {
-  const { username, email, password, name, bio, profilePicture } = req.body;
+  const { username, password, name, bio, profilePicture } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
     const result = await pool.query(
-      `INSERT INTO Users (Username, Email, PasswordHash, Name, Bio, ProfilePicture)
-       VALUES ($1,$2,$3,$4,$5,$6) RETURNING UserID, Username, Name, Bio, ProfilePicture`,
-      [username, email, hashedPassword, name, bio, profilePicture]
+      `INSERT INTO Users (Username, PasswordHash, Name, Bio, ProfilePicture)
+       VALUES ($1,$2,$3,$4,$5) RETURNING UserID, Username, Name, Bio, ProfilePicture`,
+      [username, hashedPassword, name, bio, profilePicture]
     );
     const user = result.rows[0];
     const token = jwt.sign({ id: user.userid }, process.env.JWT_SECRET);
