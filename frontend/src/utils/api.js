@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8080"; // Change to your deployed backend URL
+const API_BASE = "https://app-1e62a447-e2cf-4f44-989b-cb8dd08ecd02.cleverapps.io"; // Change to your deployed backend URL
 
 /* ----------------- AUTH ----------------- */
 export const registerUser = async ({ username, password, name }) => {
